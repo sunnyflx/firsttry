@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## 啦啦啦~自己的第一个网页哈哈哈！
 
 You can use the [editor on GitHub](https://github.com/sunnyflx/firsttry/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
