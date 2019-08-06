@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> 七夕表白 </title>
+	<style type="text/css">
+		body{
+			background: url("./images/biaobai.jpg") no-repeat center;
+			background-size: 50% 100%;
+			height: 100%;
+		}
+		html{
+			height: 100%;
+		}
+		.p1{
+			font-size:100px;
+			text-align:center;
+			color: lemonchiffon;
+			position: relative;
+			animation: try1 10s infinite
+		}
+		.p2{
+			font-size:100px;
+			text-align:center;
+			color: lemonchiffon;
+			position: relative;
+			animation: try2 10s infinite
+		}
+		@keyframes try1 {
+			0% {opacity: 0}
+			25% {opacity: 100}
+			50% {opacity: 0}
+			100% {opacity: 0}
+		}
+		@keyframes try2 {
+			 0% {opacity: 0}
+			 50% {opacity: 0}
+			 75% {opacity: 100}
+			 100% {opacity: 0}
+		 }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<p class="p1">以爱之名</p>
+		<p class="p2">你还愿意吗</p>
+	</div>
+	<img src="./images/cx.gif" alt/>
+	<audio src="mp3/bgm.mp3" controls="controls" autoplay="autoplay"></audio>
+</body>
+</html>
