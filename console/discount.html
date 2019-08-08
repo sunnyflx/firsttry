@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--suppress ES6ConvertVarToLetConst -->
+    <script>
+        function isinteger(obj) {
+            return obj%1 === 0
+        }
+        var price = 10;//价格
+        var count;//数量
+        count =prompt(price+"元一杯，你要多少杯？");
+        if(isNaN(count)){
+            document.write("这根本不是数字！！！")
+        }
+        else {
+            if (isinteger(count)) {
+                if (count % 2 == 0) {
+                    totalPrice = count * price * 0.75;
+                } else {
+                    totalPrice = count * price * 0.75 + price / 4;
+                }
+                document.write("你一共消费" + totalPrice + "元");
+            }
+            else {
+                document.write("必须是整数杯")
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
