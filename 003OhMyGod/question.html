@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //var random =Math.random; random=Math.floor(random*4)+1合并，等第九行·
+        function getAnswers(){
+            var random =Math.floor(Math.random()*4)+1;
+            var str = String.fromCharCode(64+random);
+            document.write(str);
+        }
+        function get5Answers() {
+            getAnswers();
+            getAnswers();
+            getAnswers();
+            getAnswers();
+            getAnswers();
+            document.write("<br/>")
+        }
+        get5Answers();
+        get5Answers();
+        get5Answers();
+        get5Answers();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

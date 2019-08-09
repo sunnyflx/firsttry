@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            font-size:100px;
+        }
+    </style>
+</head>
+<body>
+<p id="demo"></p>
+</body>
+</html>
+<script>
+    var random =Math.random();
+    var binggo = false;
+    random = Math.floor(random * 6)+1;
+    console.info(random);
+    //document.write(a);
+    //document.write("<img src=\"images/"+a+".png\"/>");
+    function guess() {
+        var str;
+        if(binggo){
+            return;
+        }
+        var guess = prompt("你猜色子是多少");
+        // “||”逻辑或者的意思 ，“ ！”逻辑非的意思
+        if (!Number.isInteger(guess/1)||guess>6||guess<1){
+            document.getElementById("demo").innerHTML="你的输入有误！";
+            return;
+        }
+        console.info("random="+random);
+        console.info("guess="+guess);
+        var xiangjian =Math.abs(random-guess);
+        console.info("xiangjian="+xiangjian);
+        if (guess==random){
+            str="中了！"+"<img src=\"images/"+random+".png\"/>"
+            binggo=true;
+        }
+        else if(guess>random) {
+            if (xiangjian > 1) {
+                str = "你猜的太大了！"
+            }
+            else {
+                str = "你猜的有点大了！"
+            }
+        }
+        else {
+            if (xiangjain > 1) {
+                str = "你猜的太小了！"
+            }
+            else {
+                str = "你猜的有点小了！"
+            }
+        }
+            document.getElementById("demo").innerHTML =str;
+           /*str,字符串用作与输出用（赋值）*/
+    }
+    guess();
+    guess();
+    </script>
