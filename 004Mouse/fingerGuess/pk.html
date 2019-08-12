@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="main.css" rel="stylesheet"/>
+</head>
+<body onload="go()">
+<div id="container">
+    <div id="mine">
+        <h1>我的出招</h1>
+        <div id="mychoice">
+            <img src="images/animation.gif" alt/>
+        </div>
+        <input type="button" value="石头" onclick="rock()">
+        <input type="button" value="剪刀" onclick="scissors()">
+        <input type="button" value="布" onclick="paper()">
+    </div>
+    <div id="computer">
+        <h1>电脑出招</h1>
+        <div id="computerChoice">
+            <img src="images/animation.gif" alt/>;
+        </div>
+    </div>
+    <div id="result"></div>
+</div>
+</body>
+<script src="main.js"></script>
+</html>
