@@ -1,55 +1,82 @@
-var r;
+let r,score=0,grade=1,lastHumanChoice;
+let isComputerWin=false,lastComputerChoice;
 function rock() {
-    r = 3*Math.random();
     document.getElementById("mychoice").innerHTML="<img src=\"images/rock.png\" alt/>";
-    var computerResult=computerChoice();
-    judge("rock",computerResult);
+    judge("rock");
+    lastHumanChoice="rock";
 }
 function scissors() {
-    r = 3*Math.random();
     document.getElementById("mychoice").innerHTML="<img src=\"images/scissors.png\" alt/>";
-    var computerResult=computerChoice();
-    judge("scissors",computerResult);
+    judge("scissors");
+    lastHumanChoice="scissors";
 }
 function paper() {
-    r = 3*Math.random();
     document.getElementById("mychoice").innerHTML="<img src=\"images/paper.png\" alt/>";
-    var computerResult=computerChoice();
-    judge("paper",computerResult);
+    judge("paper");   
+    lastHumanChoice="paper";
 }
-function judge(mychoice,computerResult) {
+function judge(mychoice) {
+    r = 3*Math.random();
+    let computerResult;
+    if (grade===1){
+        computerResult=onlyRocker();
+    }
+    else if (grade===2){
+        computerResult=learnFromHuman();
+    }
+    else if (grade===3){
+        computerResult=winnerAgain();
+        lastComputerChoice=computerResult;
+    }
+    else{
+        computerResult=computerChoice();
+    }
     if (mychoice === "rock") {
         if (computerResult === "rock") {
-            document.getElementById("result").innerHTML = "draw";
+            isComputerWin=false;
         }
         else if (computerResult ==="scissors") {
-            document.getElementById("result").innerHTML = "win";
+            isComputerWin=false;
+            score+=1
         }
         else if (computerResult==="paper") {
-            document.getElementById("result").innerHTML = "lose";
+            isComputerWin=true;
+            score-=1       
         }
     }
     else if (mychoice === "scissors") {
         if (computerResult ==="rock") {
-            document.getElementById("result").innerHTML = "lose";
+            isComputerWin=true;
+            score-=1;
         }
         else if (computerResult ==="scissors") {
-            document.getElementById("result").innerHTML = "draw";
+            isComputerWin=false;
         }
         else if (computerResult==="paper") {
-            document.getElementById("result").innerHTML = "win";
+            isComputerWin=false;
+            score+=1;
         }
     }
     else {
         if (computerResult === "rock") {
-            document.getElementById("result").innerHTML = "win";
+            isComputerWin=false;
+            score+=1;
         }
         else if (computerResult ==="scissors") {
-            document.getElementById("result").innerHTML = "lose";
+            isComputerWin=true;
+            score-=1;
         }
         else if (computerResult==="paper") {
-            document.getElementById("result").innerHTML = "draw";
+            isComputerWin=false;
         }
+    }
+    if (score>=6){
+        score=0;
+        grade+=1;
+    }
+    document.getElementById("result").innerHTML="第"+grade+"关"+"积分："+score;
+    if (grade>=10){
+        document.getElementById("result").innerHTML="NB,通关了";
     }
 }
 function go() {
@@ -68,4 +95,24 @@ function computerChoice() {
         document.getElementById("computerChoice").innerHTML="<img src=\"images/paper.png\" alt/>";
         return"paper";
     }
+}
+function onlyRocker() {
+    document.getElementById("computerName").innerHTML="电脑大锤哥";
+    document.getElementById("computerChoice").innerHTML="<img src=\"images/rock.png\" alt/>";
+    return "rock";
+}
+function learnFromHuman() {
+    document.getElementById("computerName").innerHTML="模仿帝";
+    document.getElementById("computerChoice").innerHTML="<img src=\"images/"+lastHumanChoice+".png\" alt/>";
+    return lastHumanChoice;
+}
+function winnerAgain() {
+    document.getElementById("computerName").innerHTML="赢了还要";
+    let temp =computerChoice();
+    if (isComputerWin===true){
+        document.getElementById("computerChoice").innerHTML="<img src=\"images/"+lastComputerChoice+".png\" alt/>";
+        return lastComputerChoice;
+    }
+    document.getElementById("computerChoice").innerHTML="<img src=\"images/"+temp+".png\" alt/>";
+    return temp;
 }
